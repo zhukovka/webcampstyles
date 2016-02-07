@@ -1,0 +1,162 @@
+// ==========================================================================
+// Dividers Modules
+// ==========================================================================
+
+.panel {
+  @include bg-colors($ui-colors);
+}
+
+%divtext {
+  color: $white;
+  h2 {
+    @extend .mb-10;
+    font-size: 190%;
+    margin-top: 0;
+    font-weight: $font-weight--light;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.divider {
+  padding: 50px 0;
+  position: relative;
+
+  &__text {
+
+    @extend %divtext;
+    &--right {
+      @extend %divtext;
+      @extend .text-right;
+    }
+    &--center {
+      @extend %divtext;
+      @extend .text-center;
+    }
+    &--highlight {
+
+    }
+  }
+  &__more {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 100%;
+    @extend .text-center;
+  }
+}
+
+#closest {
+  background: url("/img/backgrounds/calendar.png") no-repeat;
+  background-size: contain;
+}
+
+.track {
+  @extend .pb-50;
+  &s {
+    @extend %full-background;
+    background-image: url("/img/backgrounds/tracks.jpg");
+  }
+  &__item {
+    @extend .pb-20;
+    position: relative;
+    @extend .text-center;
+    color: $white;
+    border: 1px solid;
+
+    h3 {
+      @extend .text-capitalize;
+    }
+    img {
+      max-height: 150px;
+      width: auto;
+    }
+
+    &:hover {
+      cursor: pointer;
+      .track-courses {
+        z-index: 10;
+      }
+    }
+  }
+  &-courses {
+    @extend .pos0;
+    position: absolute;
+    z-index: -1;
+    background: fade-out(darken($color-primary, 20%), .05);
+    transition: $trns-duration;
+    &__list {
+      position: absolute;
+      width: 100%;
+      @extend .list-nostyle;
+      @extend %transform-centerY;
+    }
+  }
+}
+
+.latest-news {
+  &__more{
+    &:before{
+      vertical-align: bottom;
+    }
+  }
+  &__item {
+
+  }
+}
+
+.awards{
+  @extend %full-background;
+  background-image: url("/img/backgrounds/awards.jpg");
+}
+.plaid{
+  background-image: url("/img/backgrounds/check1.png");
+  background-color: darken($white, 3%);
+}
+.review{
+  @extend .mb-20;
+  &s{
+    @extend .plaid;
+  }
+  &__name{
+    @extend .text--warning;
+    @extend .text-l;
+  }
+}
+
+.employers{
+  &__logos{
+    @extend .text-center;
+  }
+}
+
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+  [class*="divider__text"]{
+      h2 {
+        font-size: 150%;
+      }
+  }
+  .divider {
+
+  }
+}
+
+@media #{$medium-up} {
+}
+
+@media #{$large-up} {
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+  #closest {
+    background: none;
+  }
+}

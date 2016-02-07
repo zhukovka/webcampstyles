@@ -1,0 +1,46 @@
+// ==========================================================================
+// Study Modules
+// ==========================================================================
+
+.study {
+  &-graph {
+    @extend .text-center;
+    background: darken($white, 2%);
+    &__item {
+      height: 100px;
+      display: table;
+      //padding: 37px 0;
+      @include bg-colors($ui-colors);
+
+      p {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      &--height {
+        @extend .study-graph__item;
+        height: 200px;
+      }
+
+      [class*="icon-"] {
+        @extend .text-l;
+        vertical-align: text-bottom;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.promo {
+
+  &__name {
+    @extend .text-center;
+    @extend .text--success;
+  }
+  &__icon {
+    @extend .text-center;
+    @extend .text--success;
+    font-size: 400%;
+    margin-bottom: 10px;
+  }
+
+}

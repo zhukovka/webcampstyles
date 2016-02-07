@@ -1,0 +1,398 @@
+// ==========================================================================
+// Course and About us Modules
+// ==========================================================================
+$modifiers-colors: (
+        default:$color-primary,
+        weekend:$color-secondary,
+        morning:$color-accent
+);
+.course {
+  &s {
+    &__h {
+      position: relative;
+    }
+    &__search {
+      @extend %icomoon;
+      @extend .icon-magnifier;
+      @extend .icons--success;
+      position: relative;
+      &:before {
+        font-size: 130%;
+        position: absolute;
+        @extend %transform-centerY;
+        left: 10px;
+      }
+
+      input {
+        padding-left: 30px;
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  background-image: url("../img/backgrounds/vertex1.jpg");
+  background-position: bottom;
+
+  &__name {
+    @extend .text--warning;
+  }
+
+  &__level {
+    $r: 5px;
+    &--first {
+      border-top-left-radius: $r;
+      border-bottom-left-radius: $r;
+    }
+    &--last {
+      border-top-right-radius: $r;
+      border-bottom-right-radius: $r;
+    }
+
+    &--middle {
+      margin: 0 1px;
+    }
+
+    @for $i from 1 through 3 {
+      &--#{$i} {
+        @extend .list-float;
+
+        & > li {
+          @extend .w-30;
+          height: 20px;
+          background-color: palette(grey, x-light);
+          &:nth-child(#{$i}) {
+            background-color: $color-primary;
+          }
+        }
+        @if $i > 1 {
+          @extend .course__level--#{$i - 1}
+        }
+      }
+    }
+
+    //&--2{
+    //  @extend .course__level--1;
+    //}
+    //&--2{
+    //  @extend .course__level--1;
+    //}
+  }
+
+  &info {
+    background: palette(grey, xx-light);
+    padding: 10px 0;
+
+    &__video {
+
+    }
+    &__clock {
+      width: 60%;
+      margin: 10px auto;
+      svg {
+        circle, line {
+          stroke: $color-primary;
+        }
+      }
+    }
+
+    &__modifier {
+      padding: 5px 15px;
+      @extend .mb-20;
+      a {
+        color: inherit;
+      }
+      @include bg-colors($modifiers-colors, $white);
+    }
+
+    &__icon {
+      @include themes($modifiers-colors) {
+        @extend .text-xxl;
+      }
+    }
+    &__results {
+      @extend .reviews;
+      @extend .mb-50;
+      padding: 40px 0;
+    }
+
+    &__organizer {
+      @extend .pos-r;
+      @extend .mb-20;
+    }
+
+    &__description {
+      @extend .mb-30;
+    }
+  }
+
+  &__calendar {
+    $dl: #{&}--daylesson;
+
+    @each $theme, $color in $modifiers-colors {
+      &--#{$theme} {
+        border-color: $color;
+        &#{$dl}, &:hover {
+          background: $color;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.results-list {
+  @extend .list-nostyle;
+  //-webkit-column-count: 2;
+  //column-count: 2;
+  & > li {
+    margin-left: 2px;
+    @extend .text-m;
+    @extend .mb-10;
+
+  }
+  .icon-checkmark-circle {
+    @extend .text--accent;
+    @extend .text-bold;
+    margin-right: 5px;
+  }
+  &__item {
+
+  }
+}
+
+.timeline {
+  @each $theme, $color in $modifiers-colors {
+    &--#{$theme} {
+      .timeline__circle {
+        cursor: pointer;
+        stroke: $color;
+        &:hover {
+          fill: $color;
+        }
+        &--active {
+          @extend .timeline__circle;
+          fill: $color;
+        }
+      }
+    }
+  }
+}
+
+[class*="course__calendar--"] {
+  pointer-events: all !important;
+  cursor: pointer;
+  //color: $white !important;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.lessons {
+  &__count {
+    @extend .text-center;
+  }
+  &__content {
+
+  }
+}
+
+.lesson {
+  &-date {
+    @extend .mb-5;
+    @extend .text-l;
+    &__daymonth {
+      color: $black;
+    }
+  }
+  &-table {
+    border-top: 1px solid;
+    @extend .w-100;
+    tr {
+      border-bottom: 1px dashed palette(grey, xx-light);
+    }
+    td {
+      @extend .pb-5;
+    }
+    &__time {
+      vertical-align: top;
+      @extend .w-10;
+      @extend .text-s;
+      color: palette(grey, x-light);
+      &--first {
+        color: palette(grey, light);
+      }
+    }
+    //&__agenga{
+    //  @extend .list-nostyle;
+    //}
+  }
+}
+
+.syllabus {
+
+}
+
+.instructor {
+  @extend .mb-20;
+  border: 1px solid $color-primary;
+  &__name {
+    @extend .text-m;
+    @extend .text--accent;
+  }
+  //&__linkedin{
+  //}
+  &__photo {
+    margin: 10px auto;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    @extend .border-round;
+  }
+  &__courses {
+    background: $color-primary;
+  }
+  &__courselist {
+    @extend .list-nostyle;
+    @extend .text-white;
+    li > a {
+      display: block;
+      padding: 15px;
+    }
+  }
+
+}
+
+.reviewer {
+  //position: relative;
+  $h: 300px;
+  height: $h;
+  overflow: hidden;
+  z-index: 0;
+  //transition: all $trns-duration;
+  @extend .mb-20;
+
+  &:hover {
+    cursor: pointer;
+    .reviewer__inner {
+      background: darken($white, 2%);
+    }
+  }
+  &.active {
+    overflow: visible;
+    z-index: 1;
+    .reviewer__inner {
+      position: absolute;
+      background: darken($white, 2%);
+      width: 90%;
+      margin: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      //top: 0;
+      box-shadow: 1px 1px 5px;
+      z-index: 2;
+      .reviewer__pic {
+        box-shadow: none;
+      }
+      &:after {
+        content: none;
+      }
+    }
+  }
+  &__inner {
+    @include p-el(after) {
+      @extend %icomoon;
+      @extend .text-center;
+      @extend .text--warning;
+      @extend .text-l;
+      content: "\e604";
+      top: $h - 20;
+      right: 0;
+    }
+    //position: absolute;
+    z-index: 1;
+    //top: 0;
+    padding: 0 15px;
+    border-radius: 4px;
+    transition: all $trns-duration;
+  }
+  &__pic {
+    @extend .text-center;
+    @extend .mb-10;
+    background: url("/img/icons/icon.svg") no-repeat center;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: auto;
+    @extend .border-round;
+  }
+  &__name {
+    @extend .text-center;
+    @extend .text--success;
+    @extend .mb-10;
+  }
+  &__rating {
+    @extend .list-inline;
+    @extend .text-center;
+    @for $i from 1 through 5 {
+      &--#{$i} {
+        @if $i > 1 {
+          @extend .reviewer__rating--#{$i - 1};
+        } @else {
+          @extend .reviewer__rating;
+        }
+        li:nth-child(#{$i}) {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+}
+
+.reviews {
+
+}
+
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+  .instructor{
+    .list-table__item--top{
+      margin: 5px 20px;
+    }
+    &__photo{
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media #{$medium-up} {
+}
+
+@media #{$large-up} {
+  .courses {
+    &__search {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      &:before {
+        font-size: 150%;
+        position: static;
+      }
+      input {
+        width: auto;
+      }
+    }
+  }
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+
+}

@@ -1,0 +1,15 @@
+// ==========================================================================
+// Angular directives Clock
+// ==========================================================================
+clock{
+  display: block;
+
+  svg{
+    max-width: 100%;
+    height: auto;
+  }
+  [id*='h_'].hour{
+    fill:$color-secondary;
+    stroke:$color-secondary;
+  }
+}

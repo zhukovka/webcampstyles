@@ -1,0 +1,142 @@
+// ==========================================================================
+// Page Modules
+// ==========================================================================
+.highlight {
+  @include bg-colors($ui-colors, $white);
+  padding: 3px 15px;
+  &--white {
+    background: $white;
+    color: $teal;
+    padding: 3px 15px;
+    font-weight: $font-weight--bold;
+  }
+}
+
+.page {
+  $border-color: palette(grey, light);
+  &__header {
+    @extend %full-background;
+    @extend .mb-20;
+  }
+  &__title {
+    color: $white;
+    margin: 50px 0;
+  }
+
+  &__list {
+    padding-left: 20px;
+    &--bodycolor {
+      color: $bodycolor;
+    }
+  }
+
+  &__h3 {
+    @extend .text--success;
+    @extend .text-uppercase;
+    font-size: 130%;
+    [class^="icon-"] {
+      vertical-align: middle;
+      &:before {
+        font-size: 130%;
+      }
+    }
+
+  }
+
+  &__table {
+    width: 100%;
+    @extend .text-left;
+    thead tr {
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+    }
+    tr {
+      border-bottom: 1px solid lighten($border-color, 10%);
+    }
+    th, td {
+      padding: 10px 5px;
+    }
+
+  }
+
+  &__info {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    p {
+      margin: 10px 0;
+    }
+    &--l {
+      @extend .text-l;
+      vertical-align: text-bottom;
+    }
+    &--ml {
+      @extend .ml-10;
+    }
+
+    &--last {
+      @extend .ml-20;
+
+      @include p-el(before, $el-h: 100%) {
+        border-left: 1px solid $border-color;
+        top: 0;
+        left: -10px;
+      }
+    }
+  }
+}
+
+.sort {
+  cursor: n-resize;
+  @include p-el(before) {
+    @extend %icomoon;
+    @extend %transform-centerY;
+    left: 100%;
+    margin-left: 3px;
+  }
+  @extend .icon-sort-amount-asc;
+  &--reverse.sort {
+    cursor: s-resize;
+    @extend .icon-sort-amount-desc;
+  }
+}
+
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+  .sort {
+    &:before{
+      display: none;
+    }
+    &--reverse.sort {
+      &:before{
+        display: none;
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+}
+
+@media #{$large-up} {
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+  .hide-navmedia {
+    display: none;
+  }
+}
+
+@media #{$mobile-only} {
+  .hide-mobile {
+    display: none;
+  }
+
+}
+

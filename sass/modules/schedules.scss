@@ -1,0 +1,51 @@
+// ==========================================================================
+// Scedules Modules
+// ==========================================================================
+
+.closest {
+  $textcolor: fade-out($white, .1);
+  &:nth-child(even){
+    padding-left: 40px;
+  }
+  &:nth-child(odd){
+    padding-right: 40px;
+  }
+  &__date {
+    background: url('/img/backgrounds/calendar.svg') no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    text-align: center;
+    color: $textcolor;
+  }
+  &__day {
+    margin-bottom: 0;
+    margin-top: 20px;
+    font-size: 250%;
+    font-weight: bold;
+    color: darken($textcolor, 10%);
+  }
+  &__month {
+  }
+
+  &__name{
+    color: $color-primary;
+    text-transform: capitalize;
+    margin-top: 5px;
+    a{
+      color: inherit;
+    }
+  }
+  &__course{
+    position: relative;
+  }
+  &__time, &__price{
+    margin-bottom: 0;
+  }
+
+  &__enroll{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+}

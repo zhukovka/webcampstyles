@@ -1,0 +1,215 @@
+// ==========================================================================
+// Helpers Utilities
+// ==========================================================================
+
+// Clearfix
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Screen reader text
+
+.srt {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Center alignment
+
+%center-align {
+  text-align: center;
+}
+
+// For pseudo-elements
+
+%pseudos {
+  display: block;
+  content: '';
+  position: absolute;
+}
+
+// Center elements
+
+.centered {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%transform-centerX{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+%transform-centerY{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//positions
+
+.pos {
+  &-r {
+    position: relative;
+  }
+  &-a {
+    position: absolute;
+  }
+}
+
+.pos0{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.right-0{
+  right: 0;
+}
+
+.left-0{
+  left: 0;
+}
+
+.top-0{
+  top: 0;
+}
+
+.bottom-0{
+  bottom: 0;
+}
+
+.pad{
+  &-0{
+    padding: 0;
+  }
+  &-r0{
+    padding-right: 0;
+  }
+  &-l0{
+    padding-left: 0;
+  }
+}
+
+//widths
+@for $i from 1 through 10 {
+  .w-#{10 * $i} { width: 10% * $i; }
+}
+@media #{$small-up} {
+  @for $i from 1 through 10 {
+    .w_s#{10 * $i} { width: 10% * $i; }
+  }
+}
+
+@media #{$medium-up} {
+  @for $i from 1 through 10 {
+  .w_m-#{10 * $i} { width: 10% * $i; }
+  }
+}
+
+@media #{$large-up} {
+  @for $i from 1 through 10 {
+  .w_l-#{10 * $i} { width: 10% * $i; }
+  }
+}
+
+
+//paddings
+
+@for $i from 1 through 10 {
+  .p-#{5 * $i} { padding: 5px * $i; }
+}
+@for $i from 1 through 10 {
+  .pb-#{5 * $i} { padding-bottom: 5px * $i; }
+}
+
+//margins
+.m-0{
+  margin: 0 !important;
+}
+@for $i from 1 through 10 {
+  .mb-#{5 * $i} { margin-bottom: 5px * $i; }
+  @media #{$small-up} {
+    .mb_s-#{5 * $i} { margin-bottom: 5px * $i; }
+  }
+
+  @media #{$medium-up} {
+    .mb_m-#{5 * $i} { margin-bottom: 5px * $i; }
+  }
+
+  @media #{$large-up} {
+    .mb_l-#{5 * $i} { margin-bottom: 5px * $i; }
+  }
+}
+@for $i from 1 through 10 {
+  @media #{$small-up} {
+    .ml_s-#{5 * $i} { margin-left: 5px * $i; }
+  }
+
+  @media #{$medium-up} {
+    .ml-#{5 * $i} { margin-left: 5px * $i; }
+  }
+
+  @media #{$large-up} {
+    .ml_l-#{5 * $i} { margin-left: 5px * $i; }
+  }
+}
+
+//gradient
+.gradient{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.65+0,0+100;Neutral+Density */
+  background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+}
+
+%full-background{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+};
+
+.table{
+  display: table;
+  width: 100%;
+
+  &-cell{
+    display: table-cell;
+  }
+}
+
+.border{
+  &-top{
+    border-top: 1px solid;
+  }
+  &-bottom{
+    border-bottom: 1px solid;
+  }
+  &-left{
+    border-left: 1px solid;
+  }
+  &-right{
+    border-right: 1px solid;
+  }
+  &-round{
+    border-radius: 50%;
+    border: 5px solid darken($white, 5%);
+    box-shadow: 1px 1px 5px;
+  }
+}

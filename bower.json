@@ -1,0 +1,21 @@
+{
+  "name": "webcampstyles",
+  "description": "",
+  "main": "",
+  "authors": [
+    "zhukovka <helen.zhukova@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/zhukovka/webcampstyles",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "~6.1.2"
+  }
+}

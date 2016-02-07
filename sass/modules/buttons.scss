@@ -1,0 +1,207 @@
+// ==========================================================================
+// Buttons Modules
+// ==========================================================================
+%btn {
+  padding: 8px 20px;
+  border: 0;
+  color: fade-out($white, .1);
+  //text-transform: uppercase;
+  font-size: em(14px);
+  font-weight: $font-weight--medium;
+  transition: all $trns-duration;
+  display: inline-block;
+  //display: block;
+}
+
+%pel {
+  left: 100%;
+  border-style: solid;
+  border-color: transparent;
+}
+@mixin btn-arrow($blc-before: $color-secondary, $arrow_w:20px, $blc-after:null){
+  $arrow_left_w: $arrow_w / 2;
+  border: 1px solid $blc-before;
+  border-right: none;
+  padding-right: $arrow_w;
+
+  @include p-el(before) {
+    top: -2px;
+    @extend %pel;
+    border-width: $arrow_w;
+    border-left-width: $arrow_left_w;
+    border-left-color: $blc-before;
+  }
+  @if $blc-after != null {
+    @include p-el(after) {
+      top: 0px;
+      @extend %pel;
+      border-width: $arrow_w - 2px;
+      border-left-width: $arrow_left_w - 2px;
+      border-left-color: $blc-after;
+      transition: all $trns-duration;
+    }
+  }
+}
+[class^="btn--"] {
+  @extend %center-align;
+  @extend %btn;
+  width: auto;
+
+  border: 1px solid;
+  &:hover {
+    //opacity: .75;
+  }
+}
+
+
+%right-shevron{
+  @extend %icomoon;
+  content: "\e876";
+  @extend %transform-centerY;
+  transition: all 1s;
+}
+.btn {
+  &__down{
+    display: inline-block;
+    border: 1px solid;
+    width: 25px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 13px;
+    cursor: pointer;
+    @include p-el(before) {
+      @extend %icomoon;
+      @extend %transform-centerX;
+      content: '\e004';
+      top: -10px;
+      opacity: 0;
+      text-align: center;
+      animation: scroll 2s infinite;
+    }
+  }
+  @include bg-colors($ui-colors);
+  @include border-colors($ui-colors);
+  //@include bg-colors-hover($ui-colors);
+  &--lg{
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 120%;
+  }
+
+  &-inverse {
+    @extend %center-align;
+    @extend %btn;
+    @include inverse-colors($ui-colors);
+  }
+
+  &--follow{
+    @include p-el(before) {
+      @extend %right-shevron;
+      right: 100%;
+      opacity: 0;
+    }
+    .follow{
+      @include p-el(after) {
+        @extend %right-shevron;
+        left: 100%;
+      }
+    }
+
+    &:hover{
+      &:before{
+        right: 0;
+        opacity: 1;
+      }
+      .follow{
+        &:after{
+          left: calc(100% + 20px);
+          text-shadow: 0px 0px 4px white;
+          color: fade_out($white, .4);
+        }
+      }
+    }
+  }
+  &-more{
+    @extend %center-align;
+    @extend %btn;
+    @extend .btn--warning;
+    @include btn-arrow();
+    display: inline-block;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  &-enroll {
+
+    @extend .btn-inverse;
+    @extend .btn-inverse--warning;
+    @include btn-arrow($blc-after:$header-bg);
+    text-transform: uppercase;
+
+    &:hover {
+      color: $header-bg;
+      @include p-el(after) {
+        border-left-color: $color-secondary;
+      }
+    }
+  }
+  &--bottom{
+    @extend .pos-a;
+    @extend .bottom-0;
+    @extend .left-0;
+  }
+
+}
+
+@keyframes scroll {
+  50%{
+    opacity: 1;
+    top:10px;
+  }
+  100%{
+    opacity: 0;
+    top:30px;
+  }
+}
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+
+}
+
+@media #{$medium-up} {
+  .btn {
+    &--lg{
+    }
+  }
+}
+
+@media #{$large-up} {
+  .btn {
+    &--lg{
+      padding-right: 60px;
+      padding-left: 60px;
+      font-size: 150%;
+      font-weight: $font-weight--light;
+    }
+    &--follow{
+
+      &:hover{
+        .follow{
+          &:after{
+            left: calc(100% + 40px);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+}
+

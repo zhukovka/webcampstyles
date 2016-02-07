@@ -1,0 +1,65 @@
+// ==========================================================================
+// Angular directives Enroll modal
+// ==========================================================================
+%cross{
+  background: $color-primary;
+  margin: -1px 0 0 -25%;
+  top:50%;
+  left: 50%;
+  transition: all $trns-duration;
+}
+.enroll-modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $white;
+  height: 100%;
+
+  &__content{
+    margin: 10%;
+    position: relative;
+  }
+  &__close{
+     position: absolute !important;
+     right: 0;
+     top: 0;
+     width: 100px;
+     height: 100px;
+    cursor: pointer;
+      &:hover{
+        &:before{
+          transform: rotate(45deg);
+        }
+        &:after{
+          transform: rotate(-45deg);
+        }
+      }
+     @include p-el(before, 50%, 2px) {
+       @extend %cross;
+     }
+    @include p-el(after, 50%, 2px) {
+      @extend %cross;
+     }
+   }
+}
+.enroll-form{
+  input, textarea, select{
+    border-color: $color-primary;
+    transition: all $trns-duration;
+    &:focus{
+      border-color: $color-primary;
+      border-width: 2px;
+    }
+  }
+
+  &__enroll{
+    @extend .btn--success;
+    @extend %btn;
+    @extend %center-align;
+    width: 100%;
+    font-size: $text-m;
+  }
+
+}

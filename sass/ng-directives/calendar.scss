@@ -1,0 +1,56 @@
+// ==========================================================================
+// Angular directives Calendar
+// ==========================================================================
+calendar{
+  display: block;
+}
+.calendar{
+  &__frame{
+    background-color: palette(grey, xx-light);
+    padding: 20px 10px;
+  }
+  &__table{
+    width: 100%;
+    min-height: 230px;
+    @extend .text-center;
+    &--borderedrow{
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+    }
+  }
+  &__day{
+    pointer-events: none;
+    padding: 1px;
+    &--weekend{
+      color: fade-out($color-secondary, 0.5);
+    }
+    span{
+      display: inline-block;
+      padding: 4px;
+      width: 100%;
+    }
+  }
+  &__nav{
+    &--prev{
+      @extend .left-0;
+    }
+    &--next{
+      @extend .right-0;
+    }
+  }
+  &__date-display{
+    @extend .text-center;
+    @extend .text-m;
+    @extend .mb-10;
+    position: relative;
+  }
+}
+.is__today{
+  border: 1px solid red;
+}
+[class*='calendar__nav--']{
+  color: $color-primary;
+  @extend .text-bold;
+  position: absolute;
+  top: 0;
+}

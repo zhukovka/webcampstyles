@@ -1,0 +1,126 @@
+// ==========================================================================
+// Typography Base
+// ==========================================================================
+@import "icomoon";
+// Import if Google Fonts URL is defined
+
+@if variable-exists(font-url--google) {
+  @import url($font-url--google);
+}
+
+$text-xxl: 300%;
+$text-xl: 200%;
+$text-l: 150%;
+$text-m: 120%;
+$text-s: 80%;
+
+
+.icons {
+  @include text-colors($ui-colors);
+}
+.text{
+  @include text-colors($ui-colors);
+  &-white{
+    color: $white;
+  }
+  &-light{
+    color: palette(grey, x-light);
+  }
+  &-dark{
+    color: palette(grey, x-dark);
+  }
+  &-numbers{
+    font-size: $base__font-size - 2px;
+  }
+
+  &-right{
+    text-align: right;
+  }
+
+  &-left{
+    text-align: left;
+  }
+
+  &-center{
+    text-align: center;
+  }
+
+  &-justify{
+    text-align: justify;
+  }
+
+  &-xxl{
+    font-size: $text-xxl;
+  }
+  &-xl{
+    font-size: $text-xl;
+  }
+
+  &-l{
+    font-size: $text-l;
+  }
+  &-m{
+    font-size: $text-m;
+  }
+
+  &-s{
+    font-size: $text-s;
+  }
+
+  &-bold{
+    font-weight: bold;
+  }
+
+  &-italic{
+    font-style: italic;
+  }
+
+  &-uppercase{
+    text-transform: uppercase;
+  }
+
+  &-capitalize{
+    text-transform: capitalize;
+  }
+}
+
+.lead{
+  @extend .text-center;
+  @extend .text-l;
+  @extend .text--accent;
+}
+
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+  .text_s{
+    &-right{
+      text-align: right;
+    }
+
+    &-left{
+      text-align: left;
+    }
+
+    &-center{
+      text-align: center;
+    }
+  }
+}
+
+@media #{$medium-up} {
+}
+
+@media #{$large-up} {
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+}
+
+@media #{$mobile-only} {
+}

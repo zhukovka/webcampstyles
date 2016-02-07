@@ -1,0 +1,63 @@
+// ==========================================================================
+// Grid Container
+// ==========================================================================
+
+.grid {
+  @extend %clearfix;
+  @extend .centered;
+  width: 90%;
+  // Make nested grid 100%
+  [class*="grid__col--"] > & {
+    width: 100%;
+  }
+
+  // Set a max-width for grid container
+  @media (min-width: 1100px) {
+    max-width: $g-cont-max-w;
+  }
+}
+
+.layout-table{
+  width: 100%;
+  &__cell{
+    &--middle{
+    }
+
+    @for $i from 1 through 10 {
+      &-#{10 * $i} {
+        @extend .layout-table__cell;
+        @extend .w-#{10 * $i};
+      }
+    }
+  }
+}
+@media #{$small-up} {
+
+}
+
+@media #{$small-only} {
+
+}
+
+@media #{$medium-up} {
+  .layout-table{
+    display: table;
+    &__cell{
+      display: table-cell;
+      &--middle{
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+@media #{$large-up} {
+
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+}

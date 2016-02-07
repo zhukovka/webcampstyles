@@ -1,0 +1,64 @@
+// ==========================================================================
+// Header Layout
+// ==========================================================================
+
+$header-bg: palette(black);
+.header {
+  $h: 102px;
+  &__top {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background: $header-bg;
+  }
+
+  &__logo {
+    margin: 10px 0;
+    display: block;
+    height: $logo-height;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__nav {
+    &--top {
+      @extend %clearfix;
+      @extend .pos-a;
+      @extend .right-0;
+      top: 5px;
+    }
+
+    &--bottom {
+      @extend .pos-a;
+      @extend .right-0;
+      bottom: 5px;
+    }
+  }
+}
+
+@media #{$small-up} {
+}
+
+@media #{$medium-up} {
+
+}
+
+@media #{$large-up} {
+
+}
+
+@media #{$nav-media} {
+  .header__nav--bottom {
+    position: static;
+  }
+    .header__nav--top {
+      padding-top: 8px;
+      margin-left: auto;
+      position: static;
+    }
+  .header__logo {
+    height: 40px;
+  }
+
+}

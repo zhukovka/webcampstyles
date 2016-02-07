@@ -1,0 +1,172 @@
+// ==========================================================================
+// Slider
+// ==========================================================================
+%acivecontrol{
+  background: fade-out($color-primary, 0.2);
+  color: $white;
+  border-bottom-color: transparent !important;
+  svg *{
+    stroke: $white !important;
+  }
+}
+.wc_slider{
+  @extend .mb-50;
+}
+.slide {
+  display: none;
+  color: palette(grey, xx-light);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 390px;
+
+  &.active{
+    display: block;
+  }
+  .gradient{
+    height: 100%;
+  }
+  @for $i from 1 through 3 {
+    &_#{$i} {
+      background-image: url('/img/banners/slider#{$i}.jpg');
+    }
+  }
+
+  &__content{
+    margin: 30px 0;
+  }
+
+  &-controls{
+    @extend .list-float;
+    &__item{
+      text-align: center;
+      &.active{
+        .slide-control{
+          @extend %acivecontrol;
+          @include p-el(before) {
+            border:solid transparent;
+            border-width: 20px 25px;
+            border-bottom-color: $color-primary;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: all 1s;
+          }
+        }
+      }
+      $border: lighten($color-secondary, 10%);
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i})>.slide-control {
+          border-bottom-color: $border;
+          @if $i % 3 == 0 {
+            $border: lighten(adjust-hue($border, -10%), 5%);
+          }
+          //@else if $i % 2 == 0 {
+          //  $border: saturate($border, 20%);
+          //}
+          @else {
+          }
+          $border: darken($border, percentage(0.1/$i));
+        }
+      }
+    }
+  }
+
+
+  &-control{
+    display: inline-block;
+    width: 90%;
+    background: palette(grey, x-light);
+    margin-top: 10px;
+    border-bottom: 3px solid;
+    transition: all 1s;
+    &:hover{
+      @extend %acivecontrol;
+    }
+
+
+
+    &__icon{
+      display: block;
+      text-align: center;
+      margin: 15px 0;
+      svg{
+        height: 45px;
+        width: auto;
+
+        *{
+          stroke-width: 2px !important;
+        }
+      }
+    }
+    &__name{
+      font-size: 80%;
+    }
+  }
+}
+
+.slide-slider{
+  display: table;
+  width: 100%;
+  &>div{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  &__left, &__right{
+    text-align: center;
+    width: 15%;
+    font-size: 200%;
+    cursor: pointer;
+  }
+  &__content{
+      position: relative;
+      //height: 460px;
+      overflow: hidden;
+    &--last{
+      position: relative;
+      z-index: -1;
+    }
+    &--img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        &:first-child{
+          z-index: 1;
+        }
+      }
+
+  }
+}
+
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+
+}
+
+@media #{$medium-up} {
+}
+
+@media #{$large-up} {
+  .slide {
+    &-control{
+      padding: 20px;
+    }
+    &-controls{
+      &__item{
+        width: 20%;
+      }
+    }
+  }
+}
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+}
+@media #{$mobile-only} {
+  .slide-slider__content{
+    //height: 160px;
+  }
+}

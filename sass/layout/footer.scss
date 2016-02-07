@@ -1,0 +1,24 @@
+// ==========================================================================
+// Footer Layout
+// ==========================================================================
+
+.footer{
+  padding: 20px 0;
+  background-color: $header-bg;
+  font-size: 80%;
+  &__links{
+    color: $white;
+
+    a{
+      color: fade-out($white, .1);
+      font-size: 80%;
+    }
+  }
+
+  &__social{
+      color: $white;
+    a{
+      color: inherit;
+    }
+  }
+}
