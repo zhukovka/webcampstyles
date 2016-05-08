@@ -90,6 +90,25 @@ module.exports = function (grunt) {
                 files: 'sass/**/*.scss',
                 tasks: ['sass:dist']
             }
+        },
+        cssmin: {
+            options: {
+                sourceMap: true
+            },
+            target: {
+                files: {
+                    'css/webcamp.min.css': ['bower_components/foundation-sites/dist/foundation.min.css', 'fonts/css/*.css', 'css/main.css']
+                }
+            }
+        },
+        fontoptim: {
+            ptserif: {
+                src: 'fonts/webcampicons/icomoon-*',
+                dest: 'fonts/css/icomoon',
+                options: {
+                    fontFamily: 'icomoon'
+                }
+            }
         }
     });
 
@@ -101,9 +120,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-fontoptim');
     // Default task.
     grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-    grunt.registerTask('style', ['sass', 'autoprefixer']);
+    grunt.registerTask('style', ['sass', 'autoprefixer', 'fontoptim', 'cssmin']);
     grunt.registerTask('w_style', ['watch:w_sass']);
-
 };
