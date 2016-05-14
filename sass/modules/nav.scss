@@ -10,7 +10,7 @@
   %nav-item-on {
     border-bottom-color: $color-primary;
   }
-  &.active{
+  &.active {
     display: block;
   }
   @extend .list-inline;
@@ -55,7 +55,7 @@
   height: 45px;
   cursor: pointer;
   //border: 1px solid;
-  &:hover{
+  &:hover {
     background: transparentize($grey, 0.8);
   }
   &__icon {
@@ -86,14 +86,17 @@
       display: block !important;
       text-align: center;
       border-top: 1px solid transparentize($grey, 0.8);
-      padding: 5px 0;
+      a {
+        padding: 5px 0;
+        display: block;
+      }
     }
   }
-  .nav-enroll{
+  .nav-enroll {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    .btn-enroll{
+    .btn-enroll {
       padding-right: 0;
       padding-left: 4px;
     }

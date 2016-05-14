@@ -3164,7 +3164,10 @@ button {
     display: block !important;
     text-align: center;
     border-top: 1px solid rgba(121, 126, 131, 0.2);
+  }
+  .nav-list__item a, .nav-list__item--active a {
     padding: 5px 0;
+    display: block;
   }
 
   .nav-enroll {
