@@ -52,49 +52,6 @@
   background-size: contain;
 }
 
-.track {
-  @extend .pb-50;
-  &s {
-    @extend %full-background;
-    background-image: url("/img/backgrounds/tracks.jpg");
-  }
-  &__item {
-    @extend .pb-20;
-    position: relative;
-    @extend .text-center;
-    color: $white;
-    border: 1px solid;
-
-    h3 {
-      @extend .text-capitalize;
-    }
-    img {
-      max-height: 150px;
-      width: auto;
-    }
-
-    &:hover {
-      cursor: pointer;
-      .track-courses {
-        z-index: 10;
-      }
-    }
-  }
-  &-courses {
-    @extend .pos0;
-    position: absolute;
-    z-index: -1;
-    background: fade-out(darken($color-primary, 20%), .05);
-    transition: $trns-duration;
-    &__list {
-      position: absolute;
-      width: 100%;
-      @extend .list-nostyle;
-      @extend %transform-centerY;
-    }
-  }
-}
-
 .latest-news {
   &__more{
     &:before{

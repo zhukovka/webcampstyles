@@ -4,12 +4,7 @@
 
 .closest {
   $textcolor: fade-out($white, .1);
-  &:nth-child(even){
-    padding-left: 40px;
-  }
-  &:nth-child(odd){
-    padding-right: 40px;
-  }
+
   &__date {
     background: url('/img/backgrounds/calendar.svg') no-repeat;
     background-size: contain;
@@ -27,25 +22,85 @@
   &__month {
   }
 
-  &__name{
+  &__name {
     color: $color-primary;
     text-transform: capitalize;
     margin-top: 5px;
-    a{
+    a {
       color: inherit;
     }
   }
-  &__course{
+  &__course {
     position: relative;
   }
-  &__time, &__price{
+  &__time, &__price {
     margin-bottom: 0;
   }
 
-  &__enroll{
+  &__enroll {
     position: absolute;
     bottom: 0;
     right: 0;
   }
+
+}
+
+@media only screen and (max-width: 40em) {
+  .closest__enroll, .courseinfo__organizer .btn--bottom {
+    position: static;
+    margin: 15px 0;
+  }
+  .closest__course {
+    text-align: center;
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (min-width: 40.0625em) {
+
+  .closest__enroll, .courseinfo__organizer .btn--bottom {
+    position: static;
+    margin: 15px 0;
+  }
+}
+
+@media #{$small-up} {
+}
+
+@media #{$small-only} {
+  .sort {
+    &:before {
+      display: none;
+    }
+    &--reverse.sort {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+}
+
+@media #{$large-up} {
+  .closest {
+    &:nth-child(even) {
+      padding-left: 40px;
+    }
+    &:nth-child(odd) {
+      padding-right: 40px;
+    }
+  }
+
+}
+
+@media #{$nav-up} {
+}
+
+@media #{$nav-media} {
+}
+
+@media #{$mobile-only} {
 
 }
