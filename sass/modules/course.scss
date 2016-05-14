@@ -54,12 +54,12 @@ $modifiers-colors: (
       margin: 0 1px;
     }
 
-    @for $i from 1 through 3 {
+    @for $i from 1 through 5 {
       &--#{$i} {
         @extend .list-float;
 
         & > li {
-          @extend .w-30;
+          width: 18%;
           height: 20px;
           background-color: palette(grey, x-light);
           &:nth-child(#{$i}) {

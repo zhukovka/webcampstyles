@@ -12,6 +12,23 @@
   }
 }
 
+.underline {
+  position: relative;
+  &:hover:after {
+    width: 100%;
+  }
+  &:after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    border-bottom: 1px solid;
+    width: 0;
+    transition: all .6s;
+  }
+
+}
+
 .page {
   $border-color: palette(grey, light);
   &__header {
@@ -106,11 +123,11 @@
 
 @media #{$small-only} {
   .sort {
-    &:before{
+    &:before {
       display: none;
     }
     &--reverse.sort {
-      &:before{
+      &:before {
         display: none;
       }
     }

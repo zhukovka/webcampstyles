@@ -16,7 +16,7 @@
   width: 100%;
   background: $white;
   height: 100%;
-
+  overflow: auto;
   &__content{
     margin: 10%;
     position: relative;
@@ -62,4 +62,15 @@
     font-size: $text-m;
   }
 
+}
+
+@media #{$small-only} {
+  .enroll-modal {
+    &__close{
+      &:before, &:after{
+        margin: 0;
+        top: 25%;
+      }
+    }
+  }
 }

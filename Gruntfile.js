@@ -102,12 +102,20 @@ module.exports = function (grunt) {
             }
         },
         fontoptim: {
-            ptserif: {
+            webcampicons: {
                 src: 'fonts/webcampicons/icomoon-*',
                 dest: 'fonts/css/icomoon',
                 options: {
                     fontFamily: 'icomoon'
                 }
+            },
+            foundationicons:{
+                src: 'fonts/foundation-icons/foundation-icons.*',
+                dest: 'fonts/css/foundation-icons',
+                options: {
+                    fontFamily: 'foundation-icons'
+                }
+
             }
         }
     });
