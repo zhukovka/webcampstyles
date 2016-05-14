@@ -52,6 +52,9 @@
 .pos-a, .header__nav--top, .header__nav--bottom, .btn--bottom {
   position: absolute;
 }
+.pos-f {
+  position: fixed;
+}
 
 .pos0, .track-courses {
   top: 0;
@@ -3714,6 +3717,20 @@ button {
   }
 }
 @media only screen and (max-width: 40em) {
+  .closest__course .divider__text--right, .closest__course .text-right, .closest__course .divider__text--right {
+    margin: 15px 0;
+    text-align: inherit;
+  }
+
+  .closest__enroll, .courseinfo__organizer .btn--bottom {
+    position: static;
+    margin: 15px 0;
+  }
+
+  .courseinfo__organizer {
+    text-align: center;
+  }
+
   .sort:before {
     display: none;
   }
@@ -4401,6 +4418,9 @@ timeline {
   margin: 10%;
   position: relative;
 }
+.enroll-modal select {
+  padding: .3rem;
+}
 .enroll-modal__close {
   position: absolute !important;
   right: 0;
@@ -4447,6 +4467,9 @@ timeline {
   .enroll-modal__close:before, .enroll-modal__close:after {
     margin: 0;
     top: 25%;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
   }
 }
 .student.header__logo img {

@@ -21,6 +21,9 @@
     margin: 10%;
     position: relative;
   }
+  select {
+    padding: .3rem;
+  }
   &__close{
      position: absolute !important;
      right: 0;
@@ -70,6 +73,7 @@
       &:before, &:after{
         margin: 0;
         top: 25%;
+        transform: none;
       }
     }
   }

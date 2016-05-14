@@ -68,6 +68,17 @@
 }
 
 @media #{$small-only} {
+  .closest__course .divider__text--right, .closest__course .text-right {
+    margin: 15px 0;
+    text-align: inherit;
+  }
+  .closest__enroll, .courseinfo__organizer .btn--bottom {
+    position: static;
+    margin: 15px 0;
+  }
+  .courseinfo__organizer {
+    text-align: center;
+  }
   .sort {
     &:before {
       display: none;
