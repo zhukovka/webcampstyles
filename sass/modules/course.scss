@@ -29,6 +29,7 @@ $modifiers-colors: (
         display: inline-block;
         width: 100%;
         margin: 0;
+        font-family: $font-family--primary;
       }
     }
   }
@@ -369,7 +370,7 @@ $modifiers-colors: (
 
     h3 {
       @extend .text-capitalize;
-      font-size: $text-xxl;
+      font-size: $text-xl;
       color: $bodycolor;
     }
     img {
@@ -380,10 +381,11 @@ $modifiers-colors: (
     @extend .pos0;
     &__list {
       @extend .list-nostyle;
-      font-size: $text-xl;
+      font-size: $text-l;
       a {
         color: $white;
-        display: inline;
+        display: block;
+        line-height: 2;
       }
     }
   }
@@ -439,6 +441,9 @@ $modifiers-colors: (
         top: 50%;
         transform: translateY(-50%);
         font-size: $text-m;
+        a{
+          display: inline;
+        }
       }
     }
   }
@@ -453,6 +458,7 @@ $modifiers-colors: (
         position: static;
       }
       input {
+        padding: 5px;
         width: auto;
       }
     }

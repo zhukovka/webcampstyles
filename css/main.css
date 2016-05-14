@@ -3881,6 +3881,7 @@ button {
   display: inline-block;
   width: 100%;
   margin: 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 .course__level--first {
   border-top-left-radius: 5px;
@@ -4176,18 +4177,19 @@ button {
   border: 1px solid;
 }
 .track__item h3 {
-  font-size: 300%;
+  font-size: 200%;
   color: #797e83;
 }
 .track__item img {
   display: none;
 }
 .track-courses__list {
-  font-size: 200%;
+  font-size: 150%;
 }
 .track-courses__list a {
   color: #fff;
-  display: inline;
+  display: block;
+  line-height: 2;
 }
 
 @media only screen and (max-width: 40em) {
@@ -4230,6 +4232,9 @@ button {
             transform: translateY(-50%);
     font-size: 120%;
   }
+  .track-courses__list a {
+    display: inline;
+  }
 
   .courses__search {
     position: absolute;
@@ -4244,6 +4249,7 @@ button {
     position: static;
   }
   .courses__search input {
+    padding: 5px;
     width: auto;
   }
 }
